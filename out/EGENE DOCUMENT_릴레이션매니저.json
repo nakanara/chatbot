@@ -1,0 +1,304 @@
+{
+  "RelationManagerGuide": {
+    "Introduction": {
+      "Description": "릴레이션 매니저는 엔터티 간의 관계를 정의하고 관리하는 도구입니다. 다양한 업무 환경에서 데이터 간 관계는 1:1, 1:N, N:N 등 다양한 구조를 가질 수 있습니다. 릴레이션 매니저를 통해 이러한 관계를 정의하고, 데이터를 저장, 수정, 삭제할 수 있습니다."
+    },
+    "DataModel": {
+      "Description": "릴레이션은 두 가지 방식의 데이터 모델로 구현됩니다. 첫 번째는 엔터티 간의 관계를 정의하는 릴레이션 테이블을 생성하여 관계를 매핑하는 방법이며, 두 번째는 엔터티 간의 관계를 참조키(FK)를 이용하여 관계를 매핑하고 부가정보를 관리하는 방법입니다."
+    },
+    "StorageMethods": {
+      "Description": "릴레이션은 폼 저장 요청 시 하나의 트랜잭션으로 처리됩니다. 외부 호출이나 메일 발송 등의 기능은 제어 버튼에 설정합니다. 릴레이션 행 삭제 시 최종 데이터 삭제 시점도 폼 저장 시점으로 변경됩니다.",
+      "Types": [
+        {
+          "Type": "API 저장방식",
+          "Description": "릴레이션 데이터 값을 저장할 때 관계 엔터티의 API 저장(entity save)을 수행합니다. 패키지 고유 저장 API이기 때문에 등록일, 수정일과 같은 컬럼을 설정하지 않아도 자동 업데이트됩니다."
+        },
+        {
+          "Type": "SQL 저장방식",
+          "Description": "릴레이션 데이터 값을 저장할 때 작성된 쿼리를 수행합니다. 쿼리는 Link SQL(추가), Unlink SQL(삭제), Apply SQL(수정) 3가지로 구분하여 작성합니다."
+        }
+      ]
+    },
+    "EditingState": {
+      "Description": "릴레이션은 데이터 편집에 대한 권한 제어가 중요합니다. 권한에 따라서 데이터 편집에 대한 권한을 부여합니다. 릴레이션 아톰에 대한 권한 제어는 폼에서 설정하는 readonly(읽기)와 editable 두 가지 상태가 있으며, 편집 조건이 만족되어야 편집이 가능합니다."
+    },
+    "RelationCreation": {
+      "Description": "Relation은 관리자 메뉴 관계 관리 화면에서 관리됩니다. 새로운 Relation을 추가하거나 등록된 Relation을 수정할 수 있습니다.",
+      "Attributes": {
+        "ID": "릴레이션 고유 ID",
+        "Name": "릴레이션 명",
+        "Explorer1": "연결된 정보를 보여줄 릴레이션(explorer) 유형의 List",
+        "Explorer2": "연결할 정보를 보여줄 연결 팝업(link) 유형의 List",
+        "Config": "릴레이션의 부가 설정 (JSON Object 형태로 작성)",
+        "RelatedEntity": "관계 정보가 저장될 엔터티 ID"
+      }
+    },
+    "DetailedSettings": {
+      "Description": "릴레이션의 부가적인 설정을 JSON Object 형태로 작성합니다. 설정은 릴레이션 매니저를 통해 부가 설정 단계에서 화면 UI로 구성할 수 있습니다.",
+      "Sample": {
+        "LinkSQL": "연결 또는 신규 저장 시 실행할 DML 작성",
+        "LinkArgument": "Link SQL의 Argument 작성",
+        "UnlinkSQL": "삭제 시 실행할 DML 작성",
+        "UnlinkArgument": "Unlink SQL의 Argument 작성",
+        "ApplySQL": "수정 저장 시 실행할 DML 작성",
+        "ApplyArgument": "Apply SQL의 Argument 작성"
+      }
+    },
+    "APIStorageSettings": {
+      "Description": "API 저장방식에서는 DML 필드 정보를 JSON Object 형태로 관리하며, 릴레이션 매니저를 통해 항목 설정 단계에서 화면 UI로 구성할 수 있습니다.",
+      "Fields": [
+        {
+          "FieldID": "저장될 필드의 ID",
+          "Type": "저장될 값이 들어있는 변수 유형",
+          "Value": "저장될 값 또는 변수 값",
+          "Label": "저장될 필드의 이름",
+          "Sequence": "키 컬럼일 경우 시퀀스 설정",
+          "Modification": "수정 상황에서 해당 필드 저장 여부",
+          "Registration": "등록 상황에서 해당 필드 저장 여부",
+          "Requirement": "필수 필드 여부"
+        }
+      ]
+    },
+    "RelationTypes": {
+      "Description": "릴레이션 유형 선택은 릴레이션 마법사를 실행하면 보여지는 최초 화면으로 데이터 모델을 결정합니다.",
+      "Types": [
+        {
+          "Type": "1:N",
+          "Description": "상위의 부가 정보를 입력할 때 사용"
+        },
+        {
+          "Type": "N:N",
+          "Description": "티켓 간 연관 정보를 설정할 때 사용"
+        }
+      ]
+    },
+    "BasicInfo": {
+      "Attributes": [
+        "ID",
+        "Name",
+        "Usage",
+        "SourceEntity",
+        "TargetEntity",
+        "RelatedEntity"
+      ]
+    },
+    "EntitySelection": {
+      "Description": "관계 정보가 쌓일 엔터티 정보를 설정합니다. 신규 엔터티 생성 또는 기존 엔터티 중 선택 가능합니다."
+    },
+    "FieldSettings": {
+      "Attributes": [
+        "Addition": "엔터티 필드를 추가",
+        "KeyColumn": "관계 정보의 키가 될 컬럼 설정",
+        "SourceKeyColumn": "소스 엔터티의 키가 저장될 컬럼 설정",
+        "TargetKeyColumn": "타겟 엔터티의 키가 저장될 컬럼 설정",
+        "Variable": "컬럼에 저장될 변수 설정 (필드값, 예약어, 입력값)"
+      ]
+    },
+    "AdditionalSettings": {
+      "Description": "릴레이션 아톰을 위한 부가 정보를 설정합니다. 기존에 JSON으로 관리하던 정보를 UI를 통해 설정할 수 있습니다.",
+      "Attributes": [
+        "ListView": "폼 화면에 보여질 리스트",
+        "LinkView": "연결 버튼을 눌렀을 때 팝업될 리스트",
+        "AdditionType": "데이터를 추가하는 형태 (행, 폼 팝업, URI 팝업)",
+        "PopupWidth": "팝업 넓이",
+        "PopupHeight": "팝업 높이",
+        "Parameters": "릴레이션 화면에서 사용할 파라미터 설정",
+        "ExcelUpload": "엑셀 업로드 기능 사용 여부"
+      ]
+    },
+    "SQLStorageSettings": {
+      "Description": "릴레이션 연결 대상 엔터티의 DML과 동적 Argument를 정의합니다.",
+      "Attributes": [
+        "LinkSetting": {
+          "Description": "연결 또는 저장 시 실행되는 DML 구문",
+          "Sample": {
+            "LinkDML": "insert into eso_template(tmp_id, tmp_text_05, tmp_src_id) values(?, ?, ?)",
+            "LinkArgument": "{ \"cols\":\"#key, tmp_text_05, #rel_key\", \"require\":\"#key,#rel_key\" }"
+          }
+        },
+        "ApplySetting": {
+          "Description": "저장 시 실행되는 DML 구문",
+          "Sample": {
+            "ApplyDML": "update eso_template set  tmp_text_05= ? where tmp_id = ?",
+            "ApplyArgument": "{ \"cols\":\"tmp_text_05, key\", \"require\":\"key\" }"
+          }
+        },
+        "UnlinkSetting": {
+          "Description": "삭제 시 실행되는 DML 구문",
+          "Sample": {
+            "UnlinkDML": "delete from eso_template where tmp_id= ?",
+            "UnlinkArgument": "{ \"cols\":\"key\", \"require\":\"key\" }"
+          }
+        }
+      ]
+    },
+    "RelationList": {
+      "Description": "Relation List는 폼 화면에 표시되는 리스트 화면을 구성합니다. 리스트 매니저를 통해 구성하며 사용하는 유형은 '릴레이션 유형(Explorer)'입니다.",
+      "Attributes": [
+        "ID": "데이터를 보여줄 컬럼. SQL 쿼리에 작성한 alias와 동일해야 함.",
+        "Label": "ID 아톰에 저장되는 컬럼. 공백 시 ID 값으로 치환됨.",
+        "Name": "데이터의 헤더로 표시될 이름.",
+        "Atom": "아톰 명. 아톰 선택 후 설정 가능.",
+        "AtomSetting": "선택한 아톰에 대한 추가 설정.",
+        "Length": "컬럼의 길이.",
+        "Alignment": "정렬 방식(왼쪽, 가운데, 오른쪽).",
+        "EventSetting": "초기이벤트, 클릭이벤트, 변경이벤트 설정.",
+        "Row": "행 위치 값.",
+        "Column": "열 위치 값.",
+        "ColumnArea": "컬럼 영역 설정.",
+        "Type": "포맷 유형.",
+        "Required": "필수 여부.",
+        "Editable": "편집 여부."
+      ]
+    },
+    "ExcelUploadSettings": {
+      "Description": "릴레이션 엑셀 업로드는 Source ID를 함께 저장해야 합니다. 로더 저장 방식으로는 ENTITY/SQL 두 가지가 있으며, ENTITY 저장 방식으로 생성한 로더를 사용할 경우 Source ID(rel_key)가 자동으로 저장됩니다.",
+      "Steps": [
+        {
+          "Step": "ENTITY 저장 방식",
+          "Details": [
+            "릴레이션 엔터티 선택",
+            "로더 신규 생성 버튼 클릭",
+            "로더 이름 입력",
+            "저장방식을 ENTITY로 설정",
+            "업로드 대상 필드를 우측으로 이동시켜 로더 필드 설정",
+            "로더 필드 속성 변경 버튼 클릭"
+          ]
+        },
+        {
+          "Step": "SQL 저장 방식",
+          "Details": [
+            "릴레이션 엔터티 선택",
+            "로더 신규 생성 버튼 클릭",
+            "로더 이름 입력",
+            "저장방식을 SQL로 설정",
+            "업로드 대상 필드를 우측으로 이동시켜 로더 필드 설정",
+            "로더 필드 속성 변경 버튼 클릭"
+          ]
+        }
+      ],
+      "InsertSQL": "INSERT SQL 작성 및 ARGS 작성",
+      "RequiredFields": {
+        "Field": "Source Field",
+        "Description": "rel_key로 불리며 릴레이션을 로딩하기 위한 기본 값"
+      }
+    },
+    "ExcelUploadActivation": {
+      "Description": "릴레이션 Config에 엑셀 업로드 설정을 활성화합니다.",
+      "Example": {
+        "Layout": {
+          "Width": 800,
+          "Height": 580
+        },
+        "UploadURI": "/xefc/jsp/ui/popup_layout.jsp?uri=/xefc/jsp/loader/loader.jsp&ldr_id=LDR00495"
+      }
+    },
+    "RelationAtoms": {
+      "Description": "Relation에서 사용할 수 있는 UI 아톰들입니다.",
+      "Atoms": [
+        {
+          "Type": "Boolean.Checkbox",
+          "Attributes": {
+            "ID": "고유 아이디",
+            "UI_ID": "UI 아이디",
+            "Alias": "별칭",
+            "Width": "너비",
+            "Alignment": "정렬",
+            "Ellipse": "말줄임표 사용 여부",
+            "Order": "순서",
+            "Format": "포맷",
+            "UI": "UI 유형",
+            "Required": "필수 여부",
+            "Readonly": "읽기 전용 여부",
+            "ChangeHandler": "변경 핸들러",
+            "ClickHandler": "클릭 핸들러",
+            "ClickHandlerArgs": "클릭 핸들러 인자",
+            "UIArgs": [
+              {
+                "Val0": "선택1",
+                "Val1": "선택2",
+                "Def_Val": "0"
+              }
+            ]
+          }
+        },
+        {
+          "Type": "Boolean.Radio",
+          "Attributes": {
+            "ID": "고유 아이디",
+            "UI_ID": "UI 아이디",
+            "Alias": "별칭",
+            "Width": "너비",
+            "Alignment": "정렬",
+            "Ellipse": "말줄임표 사용 여부",
+            "Order": "순서",
+            "Format": "포맷",
+            "UI": "UI 유형",
+            "UIArgs": [
+              {
+                "Val0": "실패",
+                "Val1": "성공",
+                "Def_Val": "1"
+              }
+            ],
+            "Readonly": "읽기 전용 여부",
+            "Required": "필수 여부",
+            "ChangeHandler": "변경 핸들러"
+          }
+        },
+        {
+          "Type": "String.Autocomplete",
+          "Attributes": {
+            "ID": "고유 아이디",
+            "Alias": "별칭",
+            "Width": "너비",
+            "Alignment": "정렬",
+            "Ellipse": "말줄임표 사용 여부",
+            "Order": "순서",
+            "Format": "포맷",
+            "UI": "UI 유형",
+            "UI_ID": "UI 아이디",
+            "Handler": "핸들러",
+            "UIArgs": [
+              {
+                "Dic": "사전 정의",
+                "ConfigParams": "",
+                "WildCard": true,
+                "Filters": "",
+                "FilterOr": false,
+                "Def_Val": "#{session.user.emp_id}",
+                "Mtn_Flag": true
+              }
+            ],
+            "Required": "필수 여부",
+            "Readonly": "읽기 전용 여부",
+            "ChangeHandler": "변경 핸들러"
+          }
+        }
+      ]
+    },
+    "RelationUtilization": {
+      "Description": "릴레이션 정보는 관리자 메뉴 관계 관리 화면에서 관리하며, 폼 디자이너에서 1:N 또는 N:N의 데이터를 구성하기 위한 아톰으로 사용할 수 있습니다. 여기에서 리스트 UI 형태로 화면을 구성하기 위한 아톰, Custom.Relation을 설명합니다.",
+      "Steps": [
+        "폼 디자이너에서 릴레이션이 위치할 Set을 선택하고 [ADD CUSTOM FIELD] 버튼을 이용하여 Custom Field 추가",
+        "Field의 속성창에서 아톰 항목을 Custom.Relation로 선택",
+        "값 설정 패널의 ID 항목에 릴레이션 아이디 등록",
+        "릴레이션 아이디 설정 후 미리보기 항목 확인",
+        "릴레이션 아톰을 선택했다면 값 설정 패널에서 릴레이션 아톰 속성을 설정"
+      ],
+      "AtomAttributes": {
+        "ID": "릴레이션 ID 설정",
+        "Editable": "편집 상태 설정 (true/false)",
+        "Delete": "릴레이션 항목 삭제 기능 사용 여부",
+        "ExcelDownload": "엑셀 다운로드 버튼 사용 여부",
+        "ExcelUpload": "엑셀 업로드 기능 사용 여부",
+        "Addition": "릴레이션 항목 추가 기능 사용 여부",
+        "Link": "릴레이션 연결 기능 사용 여부",
+        "Args": "Link(추가) 쿼리, Apply(수정) 쿼리, 릴레이션 추가 화면에 전달할 값 명시",
+        "CreateLabel": "추가 버튼 라벨 설정",
+        "ExcelCreateLabel": "엑셀 업로드 버튼 라벨 설정",
+        "LinkLabel": "연결 버튼 라벨 설정"
+      }
+    }
+  }
+}

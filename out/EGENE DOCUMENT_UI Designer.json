@@ -1,0 +1,323 @@
+{
+  "UIDesignerGuide": {
+    "Introduction": {
+      "Description": "UI Designer는 WYSIWYG 기반으로 개발된 UI 편집 모듈입니다. WYSIWYG는 'What You See Is What You Get'의 약어로, 사용자가 편집 중인 콘텐츠가 최종 출력물에서 어떻게 보이는지 실시간으로 확인할 수 있는 편집 환경을 의미합니다. UI Designer는 컴포넌트 유형 별 편집 기능을 갖추고 있어 다양한 UI를 구성하고, 실제 화면과 동일한 화면을 보며 디자인할 수 있다는 큰 장점을 가지고 있습니다."
+    },
+    "Editor": {
+      "Components": [
+        "컴포넌트 영역",
+        "Outline / Data Manager 영역",
+        "Data Manager",
+        "디자인 영역",
+        "View Mode (반응형)",
+        "속성 영역",
+        "Load Script"
+      ],
+      "Description": {
+        "Layout": "레이아웃을 결정하는 컴포넌트",
+        "Visual": "아톰을 의미하는 컴포넌트",
+        "Outline": "디자인 영역에 추가된 컴포넌트 전체 목록. 보기 및 선택 기능 제공",
+        "DataManager": "Data Source 전체 목록. 바로가기 기능 제공",
+        "DataBinding": "Data Binding을 위한 Source 관리",
+        "DragAndDrop": "컴포넌트를 Drag & Drop하여 편집하는 화면",
+        "Monitor": "모니터에서 보여지는 화면",
+        "Pad": "패드에서 보여지는 화면",
+        "Mobile": "모바일에서 보여지는 화면",
+        "ComponentDetail": "디자인 영역에 추가된 컴포넌트 중 선택된 컴포넌트의 상세 설정 화면",
+        "AttributeDisplay": "컴포넌트 유형에 따라 각 속성 화면 표시"
+      }
+    },
+    "EditingFeatures": {
+      "Features": [
+        "컴포넌트 추가 및 이동은 Drag & Drop 기능을 제공합니다.",
+        "디자인 영역 클릭 시 선택한 컴포넌트는 리사이징 선이 표시되며, 하위 컴포넌트는 점선이 표시됩니다.",
+        "모든 속성은 속성 영역에서 설정할 수 있고, 일부 설정은 디자인 영역에서도 설정 가능합니다.",
+        "디자이너 최초 Load 시 실행될 Script 설정은 JavaScript 형식으로 작성 필요",
+        "컴포넌트는 리사이징 핸들로 크기를 편집할 수 있습니다.",
+        "텍스트가 포함된 컴포넌트(Label, Button 등)는 텍스트를 클릭하고 직접 수정할 수 있습니다.",
+        "Image 또는 List 컴포넌트와 같이 연결이 필요한 컴포넌트는 추가/변경 버튼이 표시되어 편집 가능합니다.",
+        "컴포넌트 선택 후 단축 키 또는 우 클릭 메뉴를 통해 ‘잘라내기/복사하기/붙여넣기/삭제’ 기능을 사용할 수 있습니다."
+      ]
+    },
+    "ResponsiveEditing": {
+      "Description": "UI Designer에서는 웹/태블릿/모바일 기기에 따라 편집 화면을 제공합니다. 컴포넌트 추가 시 모든 기기 화면에 컴포넌트가 추가되며, width/height 속성을 제외한 모든 속성은 공통으로 사용합니다. 원하는 기기에서 컴포넌트를 노출하고 싶지 않을 경우 속성 영역에 있는 '컴포넌트 숨기기'를 체크하여 기기마다 다른 화면을 제공할 수 있습니다."
+    },
+    "CommonScriptFunctions": {
+      "Functions": [
+        "Tab 보이기 => showTab('TabID', callBackFunc);",
+        "Tab 숨기기 => hideTab('TabID', callBackFunc);",
+        "Tab 선택 => selectTab('TabID', callBackFunc);"
+      ],
+      "Example": "selectTab('L13_1', function action(){ console.log('select!'); });"
+    },
+    "Preview": {
+      "Description": "모든 설정이 저장된 후 미리보기를 통해 완료된 UI 화면을 확인합니다."
+    },
+    "PortalApplication": {
+      "Description": "생성한 UI Designer를 포탈에 적용하는 방법은 아래와 같습니다. 경로: EGENE Manager > Guided Setup 포털 경로 필드 입력: /designer/uiDesignView.jsp?key={UI ID} 예시: /designer/uiDesignView.jsp?key=UI00001"
+    },
+    "Components": {
+      "LayoutComponents": {
+        "Description": "디자인 영역의 레이아웃을 결정하는 컴포넌트입니다.",
+        "Types": [
+          {
+            "Name": "Box Layout",
+            "Description": "Box 형태로 여러 개의 하위 컴포넌트를 배치할 수 있습니다. Padding, Margin, Fill, Stroke 등 디자인을 편집합니다."
+          },
+          {
+            "Name": "Tab Layout",
+            "Description": "Tab 형태이며, Tab 별 하위에 Box Layout이 포함되어 있어 여러 개의 하위 컴포넌트를 배치할 수 있습니다. Tab 추가/수정/삭제 기능으로 컴포넌트를 편집합니다."
+          },
+          {
+            "Name": "Top Panel Layout",
+            "Description": "Panel이 상단에 위치한 형태로 하위에 Box Layout이 포함되어 있어 여러 개의 하위 컴포넌트를 배치할 수 있습니다. Panel Name은 기본 값이 'panel'이며, 수정 가능합니다. Panel Description은 기본 값이 없으며, 필수 값이 아닙니다."
+          },
+          {
+            "Name": "Left Panel Layout",
+            "Description": "Panel이 좌측에 위치한 형태로 하위에 Box Layout이 포함되어 있어 여러 개의 하위 컴포넌트를 배치할 수 있습니다. Panel Name은 기본 값이 'panel'이며, 수정 가능합니다. Panel Description은 기본 값이 없으며, 필수 값이 아닙니다."
+          }
+        ]
+      },
+      "VisualComponents": {
+        "Description": "2가지 유형(아톰/데이터 큐브)이 있는 UI 컴포넌트입니다. 비주얼 컴포넌트는 레이아웃 컴포넌트 안에 위치해야 하며, 하위에는 어떠한 컴포넌트도 배치할 수 없는 최하위 레벨 컴포넌트입니다. 차트 컴포넌트는 대시보드 화면 유형에서 사용할 수 있습니다.",
+        "Types": [
+          {
+            "Name": "Label",
+            "Description": "입력한 텍스트를 보여주는 아톰입니다. 텍스트를 수정하고 디자인을 편집합니다."
+          },
+          {
+            "Name": "Button",
+            "Description": "커스텀 버튼을 생성하는 아톰입니다. 버튼 텍스트를 수정하고 디자인을 편집합니다. 텍스트 좌측 또는 우측에 아이콘을 추가할 수 있습니다."
+          },
+          {
+            "Name": "Image",
+            "Description": "이미지를 보여주는 아톰입니다. 첨부 파일에서 사진을 선택하거나 Image Template 설정에서 템플릿을 선택하여 사용할 수 있습니다. 첨부 파일에서 이미지 선택 시 크기와 자르기, 회전/반전을 통해 이미지를 편집할 수 있습니다."
+          },
+          {
+            "Name": "List",
+            "Description": "리스트를 보여주는 아톰입니다. 원하는 리스트를 선택하여 해당 리스트 설정에 맞게 리스트가 보여집니다. 리스트 설정은 리스트 매니저에서 할 수 있습니다."
+          },
+          {
+            "Name": "Line Chart, Smooth Line Chart",
+            "Description": "라인 차트를 그리는 아톰입니다. 라인 차트는 연속적인 데이터에 따라 그래프로 표현하는 데 사용되는 시각화 방법 중 하나입니다. 스무스 라인 차트는 라인 차트의 한 종류로, 데이터를 부드럽게 연결한 곡선을 사용해 표현하는 차트입니다. 데이터 바인딩과 차트 디자인을 편집할 수 있습니다."
+          },
+          {
+            "Name": "Column Chart, Stack Column Chart",
+            "Description": "컬럼 차트를 그리는 아톰입니다. 컬럼 차트는 데이터를 막대로 표현하는 시각화 방법 중 하나입니다. 스택 컬럼 차트는 컬럼 차트의 한 종류로, 데이터를 수직으로 쌓아서 하나의 컬럼으로 표현하는 차트입니다. 데이터 바인딩과 차트 디자인을 편집할 수 있습니다."
+          },
+          {
+            "Name": "Bar Chart, Stack Bar Chart",
+            "Description": "막대 차트를 그리는 아톰입니다. 막대 차트는 컬럼 차트와 동일하게 데이터를 막대로 표현하는 시각화 방법 중 하나입니다. 스택 막대 차트는 막대 차트의 한 종류로, 데이터를 수평으로 이어서 하나의 컬럼으로 표현하는 차트입니다. 데이터 바인딩과 차트 디자인을 편집할 수 있습니다."
+          },
+          {
+            "Name": "Pie Chart, Donut Chart",
+            "Description": "원형 차트를 그리는 아톰입니다. 원형 차트는 전체 데이터 집합에서 각 부분이 차지하는 비율을 표현하는 시각화 방법 중 하나입니다. 도넛 차트는 원형 차트의 변형으로, 중앙에 데이터의 건수를 표시하는 형태를 가지고 있습니다. 데이터 바인딩과 차트 디자인을 편집할 수 있습니다."
+          },
+          {
+            "Name": "Area Chart, Stack Area Chart",
+            "Description": "면적 차트를 그리는 아톰입니다. 면적 차트는 연속적인 데이터에 따라 그래프로 표현하는 데 사용되는 시각화 방법 중 하나입니다. 라인 차트와 유사하지만, 라인 아래 영역을 채워서 표시하는 것이 특징입니다. 스택 면적 차트는 데이터를 하나의 차트에 쌓아서 표현하는 방식으로, 전체 데이터의 상대적인 비율을 보여줍니다. 각 데이터의 영역이 아래쪽 데이터 위에 쌓여져서 표현되는 것이 특징입니다. 데이터 바인딩과 차트 디자인을 편집할 수 있습니다."
+          }
+        ]
+      }
+    },
+    "Attributes": {
+      "General": {
+        "ID": "컴포넌트 추가 시 ID는 자동으로 입력되며, 수정할 수 없습니다. script 설정에서 ID 선택자를 활용하여 제어할 때 사용합니다. jQuery 사용은 불가하며, JavaScript를 사용해서 script를 입력해야 합니다.",
+        "Name": "컴포넌트의 Name으로 Outline이 표시되고, ID와는 달리 수정 가능하여 컴포넌트를 구분하기 위해 사용하는 속성입니다.",
+        "VisualType": "레이아웃 컴포넌트 선택 시 보여지며, 해당 레이아웃의 유형이 라디오 버튼으로 표시되는 속성입니다. 레이아웃 유형을 수정하여 편집할 수 있습니다.",
+        "ComponentHide": "웹/탭/모바일 기기에서 각각 컴포넌트 사용 유무를 체크합니다. 숨김 상태의 경우 해당 기기 화면에서 표시되지 않으며, 접근해야 하는 경우 Outline을 통해 선택해야 합니다.",
+        "Theme": "대시보드 화면 유형일 경우 테마를 선택합니다. 테마 선택 시 전체 배경 색상과 Tab Layout, Top Panel Layout, Left Panel Layout 컴포넌트에 디자인이 적용됩니다.",
+        "Design": "컴포넌트의 디자인을 편집할 수 있는 속성입니다."
+      },
+      "Frame": {
+        "XCoordinate": "컴포넌트의 x 축 좌표 (수정 불가)",
+        "YCoordinate": "컴포넌트의 y 축 좌표 (수정 불가)",
+        "Width": "가로 길이 설정",
+        "Height": "세로 길이 설정",
+        "WidthResizing": "가로 길이 리사이징 (단위: 'px' 또는 '%')",
+        "HeightResizing": "세로 길이 리사이징 (단위: 'px' 또는 '%')"
+      },
+      "Padding": {
+        "Description": "컴포넌트의 내부 여백을 설정하는 속성입니다. content와 border 사이에 여백을 지정할 수 있습니다.",
+        "LeftRight": "콤마(,)를 구분으로 좌, 우 padding 값 설정",
+        "TopBottom": "콤마(,)를 구분으로 상, 하 padding 값 설정",
+        "IndividualSetting": "개별 보기 버튼을 통해 개별 세팅도 가능합니다."
+      },
+      "Margin": {
+        "Description": "컴포넌트 주위의 외부 여백을 설정하는 속성입니다. 컴포넌트와 다른 컴포넌트 사이의 간격을 조절하거나, 부모/자식 간 컴포넌트 사이 간격을 조절하는데 사용됩니다.",
+        "LeftRight": "콤마(,)를 구분으로 좌, 우 margin 값 설정",
+        "TopBottom": "콤마(,)를 구분으로 상, 하 margin 값 설정",
+        "IndividualSetting": "개별 보기 버튼을 통해 개별 세팅도 가능합니다."
+      },
+      "Fill": {
+        "Description": "컴포넌트 내부 색상을 설정하는 속성이며, 컴포넌트 기본 색상은 흰색(#ffffff)입니다. 사용자가 직접 색상을 입력하거나 Color Picker를 이용해 원하는 색상을 선택할 수 있습니다."
+      },
+      "Stroke": {
+        "Description": "컴포넌트의 테두리를 설정하는 속성입니다.",
+        "Color": "테두리의 색상 설정으로, 사용자가 직접 색상을 입력하거나 Color Picker를 이용하여 원하는 색상을 선택할 수 있습니다.",
+        "Style": "테두리 스타일 설정",
+        "Width": "테두리 두께 설정으로, 상하좌우 개별 설정이 가능합니다.",
+        "Radius": "테두리 굴곡 설정으로, 테두리의 모서리를 둥글게 처리하여 디자인 적인 효과를 추가할 수 있습니다.",
+        "Styles": ["solid: 실 선", "dotted: 점 선", "groove: 홈이 파여있는 효과가 있는 선", "double: 이중 선", "inset: 내부의 홈이 들어와있는 효과가 있는 선", "outset: 외부로 돌출된 효과가 있는 선", "dashed: 대시 선", "ridge: 홈이 들어와있는 효과가 있는 선"]
+      },
+      "Text": {
+        "Description": "텍스트가 있는 비주얼 컴포넌트에서 설정할 수 있는 텍스트 디자인 속성입니다.",
+        "Styles": ["기본 값: Normal & 13.5 px", "장식 적용 X", "텍스트 위에 선 추가", "텍스트 밑줄 추가", "왼쪽 정렬", "가운데 정렬", "오른쪽 정렬", "상단 정렬", "중앙 정렬", "하단 정렬"],
+        "Color": "사용자가 직접 색상을 입력하거나 Color Picker를 이용하여 원하는 색상을 선택할 수 있습니다.",
+        "ButtonIcon": "Button 컴포넌트에서 사용합니다. Button 컴포넌트에 추가될 아이콘을 선택하고, 좌/우 위치를 설정하는 속성입니다."
+      },
+      "ImageOption": {
+        "Description": "Image 컴포넌트에서 사용하는 속성으로, 이미지의 크기 조절 방식을 설정하는 속성입니다.",
+        "Fill": "이미지를 컴포넌트 크기 가득 채웁니다. 종횡비가 유지되지 않으며, 컴포넌트 크기에 맞게 이미지가 늘어날 수 있습니다.",
+        "Fit": "이미지가 컴포넌트에 맞도록 크기를 조절합니다. 이미지가 모두 표시될 수 있도록 종횡비를 유지합니다.",
+        "Cover": "이미지를 컴포넌트에 맞추되, 컴포넌트의 측면이 이미지에 맞도록 크기를 조절합니다. 이미지의 일부가 잘릴 수 있습니다."
+      },
+      "ImageTemplate": {
+        "Description": "Image 컴포넌트에서 사용하는 속성으로, 다양한 디자인의 이미지 템플릿을 제공합니다.",
+        "Search": "템플릿 검색 창 (전체 그룹에서 검색)",
+        "Reset": "설정된 이미지 템플릿 초기화 기능"
+      },
+      "ChartDesign": {
+        "Text": {
+          "CommonColor": "X-Axis Label, Y-Axis Label과 Legend의 공통 색상을 선택합니다. X-Axis Label과 Y-Axis Label은 각 속성 영역에서 개별 색상을 선택할 수 있습니다."
+        },
+        "Theme": "차트 데이터의 테마 색상을 선택합니다.",
+        "GridLine": {
+          "ShowLine": "사용여부 체크",
+          "Color": "선 색상 선택"
+        },
+        "XAxisLabel": {
+          "ShowLabel": "사용여부 체크",
+          "Position": "라벨 위치 선택 (top / bottom)",
+          "Size": "라벨 텍스트 사이즈",
+          "Color": "라벨 색상 선택"
+        },
+        "YAxisLabel": {
+          "ShowLabel": "사용여부 체크",
+          "Position": "라벨 위치 선택 (left / right)",
+          "Size": "라벨 텍스트 사이즈",
+          "Color": "라벨 색상 선택"
+        },
+        "Line": {
+          "Style": "선 스타일 (smooth / straight / stepline)",
+          "Width": "선 굵기",
+          "Dash": "대시 스타일(선의 일정한 간격마다 대시가 반복되는 스타일)"
+        },
+        "Bar": {
+          "Align": "막대(bar) 정렬 (horizontal / vertical)",
+          "WidthHeight": "막대 굵기",
+          "Radius": "막대 굴곡"
+        },
+        "Legend": {
+          "ShowLegend": "사용여부 체크",
+          "Position": "라벨 위치 선택 (top / bottom / left / right)",
+          "Align": "Position이 top 또는 bottom인 경우 정렬 선택 (left / center / right)",
+          "Size": "라벨 텍스트 사이즈"
+        },
+        "DataLabel": {
+          "ShowLabel": "사용여부 체크",
+          "LabelColor": "라벨 색상 선택",
+          "BackgroundColor": "라벨 배경 색상 선택",
+          "BorderColor": "라벨 테두리 색상 선택",
+          "BorderWidth": "라벨 테두리 굵기",
+          "BorderRadius": "라벨 테두리 굴곡"
+        },
+        "TotalLabel": {
+          "Description": "Donut Chart에서 사용하는 Total 설정입니다. 차트에 표시된 데이터의 전체 합계를 의미하며, Title과 Value를 설정합니다.",
+          "ShowLabel": "사용여부 체크",
+          "Title": "title 라벨 (기본 값: Total)",
+          "TitleSize": "title 라벨 텍스트 사이즈",
+          "TitleColor": "title 라벨 색상 선택",
+          "ValueSize": "value 라벨 텍스트 사이즈",
+          "ValueColor": "value 라벨 색상 선택"
+        }
+      },
+      "Event": {
+        "Description": "컴포넌트에 이벤트(init, click, change)를 설정하기 위한 속성입니다.",
+        "Setting": {
+          "Description": "이벤트를 설정할 컴포넌트를 선택한 후 Event 속성의 플러스 버튼을 클릭합니다. select box를 통해 해당 컴포넌트에서 사용할 수 있는 이벤트가 표시되며, 편집 버튼을 통해 script(JavaScript 사용)를 작성합니다. 모든 이벤트를 사용할 경우 플러스 버튼이 노출되지 않으며, 작성한 이벤트에 마우스 Hover 시 삭제 버튼이 노출되어 이벤트 삭제도 가능합니다."
+        },
+        "Init": "컴포넌트가 로드되고 난 후 실행되는 이벤트로, 컴포넌트의 초기 상태를 설정하는 등의 작업 시 사용합니다.",
+        "Change": "컴포넌트의 값이 변경될 때마다 실행되는 이벤트로, 'val' 변수로 변경된 값을 넘겨받아 script에서 사용할 수 있습니다.",
+        "Click": "컴포넌트를 클릭할 때마다 실행되는 이벤트로, 클릭 이벤트를 감지하여 이에 대응하는 동작을 수행하거나 다른 페이지로 전환하는 등의 작업 시 사용합니다."
+      },
+      "DataBinding": {
+        "Description": "Data Binding이란 UI와 데이터 모델을 연결하는 기술이나 프로세스를 가리킵니다. UI Designer에서는 API/SQL을 통해 가져온 데이터를 비주얼 컴포넌트와 연결하여 UI에 표시합니다. Data Binding는 필수가 아니며, 데이터 연결 필요 시 사용합니다."
+      },
+      "DataManager": {
+        "Description": "Data Manager에서 Data Source를 관리하며, 왼쪽 상단 버튼을 통해 추가할 수 있습니다.",
+        "SaveNotice": "** Data Manager의 저장 버튼 클릭 시 UI Designer 저장과 별개로 Data Manager가 저장됩니다. **"
+      }
+    },
+    "APITypes": {
+      "DataSource": {
+        "Steps": [
+          "Data Source의 Name이 표시되는 Tab으로, 추가/삭제 할 수 있습니다.",
+          "API 유형을 선택합니다.",
+          "Data Source의 Name을 입력합니다.",
+          "GET or POST 방식을 선택하고 API를 작성합니다.",
+          "파라미터가 필요한 경우 작성합니다.",
+          "API와 파라미터 모두 작성되었다면, '미리보기' 버튼을 통해 결과 값을 확인합니다."
+        ]
+      },
+      "SQLType": {
+        "Steps": [
+          "Data Source의 Name이 표시되는 Tab으로, 추가/삭제 할 수 있습니다.",
+          "SQL 유형을 선택합니다.",
+          "Data Source의 Name을 입력합니다.",
+          "SQL ID를 입력합니다. 'SQL 매니저' 버튼을 통해 정보를 확인할 수 있습니다.",
+          "파라미터가 필요한 경우 작성합니다.",
+          "SQL과 파라미터 모두 작성되었다면, '미리보기' 버튼을 통해 결과 값을 확인합니다."
+        ]
+      }
+    },
+    "DataSource": {
+      "DataManager": {
+        "Description": "Data Manager에서 추가한 Data Source를 선택하여 비주얼 컴포넌트에 연결하는 속성입니다. 편집 버튼을 통해 Data Manager에 접근 가능합니다.",
+        "Data": "Data Source 선택 시 해당 Source의 데이터 컬럼이 표시되며, Binding 할 데이터를 선택합니다. Binding된 데이터는 기본 값(Default Value)보다 우선으로 표시됩니다.",
+        "BindingIcon": "Binding 설정한 컴포넌트는 Outline에서 Data Manager 아이콘이 추가로 표시됩니다.",
+        "ChartDataSource": "Data Manager에서 추가한 Data Source를 선택하여 차트 컴포넌트에 연결하는 속성입니다.",
+        "SeriesSettings": "Data Source 선택 시 해당 Source의 일부 컬럼 데이터가 Series로 설정됩니다. Series의 체크박스를 통해 사용여부를 체크할 수 있고, Series의 라벨 값도 수정 가능합니다.",
+        "RequiredColumns": {
+          "PieDonutChart": [
+            "name 컬럼: Series 설정",
+            "cnt 컬럼: 데이터 값 설정"
+          ],
+          "OtherCharts": [
+            "name 컬럼: X 축 라벨 설정",
+            "name 외 컬럼: Series 및 데이터 값 설정"
+          ]
+        }
+      }
+    },
+    "Setting": {
+      "Description": "비주얼 컴포넌트에서 사용하며, 컴포넌트의 기본 설정을 할 수 있는 속성입니다.",
+      "DefaultValue": "컴포넌트의 기본 값 설정으로, 설정된 값으로 화면에 표시됩니다.",
+      "ListParameter": {
+        "Description": "List 컴포넌트에서 사용하며, 컴포넌트에서 보여질 리스트 선택과 파라미터를 설정하는 속성입니다.",
+        "Steps": [
+          "돋보기 버튼을 통해 'List' 유형의 리스트를 선택합니다.",
+          "리스트 선택 후 '리스트 매니저'에서 리스트에 대한 정보를 확인/수정 할 수 있습니다.",
+          "리스트에서 사용하는 파라미터 데이터를 작성합니다."
+        ]
+      },
+      "TabSetting": {
+        "Description": "Tab 레이아웃 컴포넌트에서 사용하며, Tab 세부 속성을 설정합니다.",
+        "HideTab": "Tab 컴포넌트는 기본적으로 상단에 Tab 영역이 존재하며, Tab 영역을 숨김 처리할 수 있습니다.",
+        "TabList": {
+          "Description": "Tab List에서는 Tab 목록과 ID를 확인합니다. ID는 Tab 추가 시 자동으로 생성되고 Event에서 Tab을 제어하기 위해 사용됩니다. Tab 추가/수정/삭제는 UI 편집 모드와 Tab List 속성에서 모두 가능합니다."
+        },
+        "Event": {
+          "Description": "Tab 컴포넌트에 이벤트(init, change)를 설정하기 위한 속성입니다.",
+          "InitEvent": "Tab 컴포넌트가 로드되고 난 후 실행되는 이벤트로, Tab 영역의 초기 상태를 설정할 수 있습니다. 제어 함수를 통해 show/hide/select 하고, 이때 매개변수로 개별 Tab ID와 콜백 함수를 넘겨주어 처리합니다. Tab ID는 필수이며, 콜백 함수는 필수가 아닙니다.",
+          "ChangeEvent": "Tab 영역을 클릭하여 Tab이 변경될 때마다 실행되는 이벤트로, 'val' 변수로 변경된 Tab의 ID를 받아 script에서 사용할 수 있습니다."
+        }
+      },
+      "PanelSetting": {
+        "Description": "Top/Left Panel 레이아웃 컴포넌트에서 설정하는 속성입니다.",
+        "PanelName": "Panel 제목을 설정하는 속성으로 Top Panel은 상단, Left Panel은 좌측에 위치합니다. Panel 레이아웃 추가 시 Panel Name의 기본 값은 'panel' 입니다.",
+        "PanelDescription": "Panel 추가 설명을 설정하는 속성으로, Panel Name과 동일하게 상단/좌측에 위치해있습니다. Panel 레이아웃 추가 시 Panel Description의 기본 값은 없으며, 필수 값이 아닙니다."
+      }
+    }
+  }
+}
