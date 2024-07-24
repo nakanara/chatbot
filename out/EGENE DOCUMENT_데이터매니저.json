@@ -1,88 +1,92 @@
 {
-  "DataManagerGuide": {
-    "Introduction": {
-      "Description": "DBMS 툴의 지식 없이 사용자가 데이터 논리를 바탕으로 스키마 빌더인 Entity Manager 도구를 이용하여 엔티티 추가, 수정, 삭제 등을 손쉽게 할 수 있습니다. 또한, 엔티티 생성 시 엔티티 유형 별로 최적화된 정규화된 스키마를 통해 자동 생성되며, 이를 바탕으로 데이터 모델을 확장하여 어플리케이션 제작 시 데이터 모델링의 시행착오와 오버헤드를 줄일 수 있습니다."
-    },
-    "EntityManagement": {
-      "Description": "엔터티는 정보를 저장하고 관리하기 위한 논리적인 개념의 단위입니다. 하나의 엔터티는 하나 이상의 정규화된 테이블을 가지며, 마스터 테이블은 필수적으로 생성되고, 물리적인 항목들은 수정 가능합니다. 엔터티 네이밍 방법은 현업업무 용어 사용, 약어 사용, 모든 엔터티 유일한 이름, 엔터티 생성 의미에 맞는 이름을 사용하는 것입니다.",
-      "Attributes": [
-        {
-          "ID": "엔터티 ID로 고유한 값으로 정의되며, 영문 대문자/숫자만 입력 가능 (최대 20자리).",
-          "Name": "엔터티 ID의 이름으로, 최대 100자리까지 입력 가능.",
-          "Type": {
-            "Workflow": "워크플로우 관리에서 사용.",
-            "Relation": "1:N 구조에서 사용.",
-            "General": "등록 후 종료 데이터 기반으로 이력 관리.",
-            "System": "솔루션 시스템 관리.",
-            "LifeCycle": "솔루션 기반 정보 관리.",
-            "ServiceRepository": "DW를 위한 데이터 레퍼지토리.",
-            "Dataset": "데이터 셋."
-          },
-          "Package": {
-            "ECC": "Data set, Data source, DataAdapter, DataAdapter 이력, RawData.",
-            "ECF": "직원, 부서, 회사, 지표, 코드.",
-            "ECR": "워크플로우 (Form, Sql, Mapping 등).",
-            "EDM": "지표 관련 데이터를 쌓아두는 repository.",
-            "EFC": "Config, Entity, Field, Table 등.",
-            "ELG": "로그 관리.",
-            "ESO": "Service Operation 데이터."
-          }
-        }
-      ]
-    },
-    "TableManagement": {
-      "Description": "테이블 스키마를 Oracle이나 Maria와 같은 DBMS DDL 없이 솔루션에서 제공하는 관리 UI를 통해 생성하거나 수정할 수 있습니다. 마스터 테이블은 필수로 생성해야 하며, 커스텀 테이블은 선택적으로 생성할 수 있습니다.",
-      "Attributes": {
-        "Table": "마스터 테이블 외의 물리적인 테이블 생성 여부는 선택입니다.",
-        "CreationAndDeletion": "엔터티의 Package+엔터티 ID 조합으로 물리적인 테이블 생성 가능. 테이블 ID 수정 가능."
+  "title": "데이터 매니저",
+  "type": "Document",
+  "content":   {
+    "DataManagerGuide": {
+      "Introduction": {
+        "Description": "DBMS 툴의 지식 없이 사용자가 데이터 논리를 바탕으로 스키마 빌더인 Entity Manager 도구를 이용하여 엔티티 추가, 수정, 삭제 등을 손쉽게 할 수 있습니다. 또한, 엔티티 생성 시 엔티티 유형 별로 최적화된 정규화된 스키마를 통해 자동 생성되며, 이를 바탕으로 데이터 모델을 확장하여 어플리케이션 제작 시 데이터 모델링의 시행착오와 오버헤드를 줄일 수 있습니다."
       },
-      "Columns": [
-        {
-          "Name": "고유 필드 ID.",
-          "Label": "UI에서 보이는 물리적 필드의 기본 라벨명.",
-          "Type": "UI 유형으로 사전 정의. 폼 디자이너에서 선택지 결정.",
-          "Usage": "사용 여부에 따라 화면 표시 여부 결정.",
-          "PK": "물리적 항목 ID를 PK로 자동 지정.",
-          "Audit": "변경이력 테이블과 영향.",
-          "EntityReference": "참조할 타겟 엔터티 정의.",
-          "CodeType": "참조할 코드 유형 정의."
-        }
-      ]
-    },
-    "APIIntegration": {
-      "RESTAPI": {
-        "Endpoints": [
+      "EntityManagement": {
+        "Description": "엔터티는 정보를 저장하고 관리하기 위한 논리적인 개념의 단위입니다. 하나의 엔터티는 하나 이상의 정규화된 테이블을 가지며, 마스터 테이블은 필수적으로 생성되고, 물리적인 항목들은 수정 가능합니다. 엔터티 네이밍 방법은 현업업무 용어 사용, 약어 사용, 모든 엔터티 유일한 이름, 엔터티 생성 의미에 맞는 이름을 사용하는 것입니다.",
+        "Attributes": [
           {
-            "URL": "도메인명/api/egene/entity/newkey",
-            "Method": "GET",
-            "Response": "JSONObject",
-            "Description": "유니크 키 생성 API."
-          },
-          {
-            "URL": "도메인명/api/egene/entity/{id}/newkey",
-            "Method": "GET",
-            "Response": "JSONObject",
-            "Description": "엔터티의 시퀀스 값에 따라 키 생성 API."
-          },
-          {
-            "URL": "도메인명/api/egene/entity/rows/{entId}",
-            "Method": "GET",
-            "Response": "JSONArray",
-            "Description": "캐시 엔터티의 전체 데이터 조회 API."
-          },
-          {
-            "URL": "도메인명/api/egene/entity/all/{entId}",
-            "Method": "GET",
-            "Response": "JSONArray",
-            "Description": "엔터티의 마스터 테이블 모든 데이터 조회 API."
-          },
-          {
-            "URL": "도메인명/api/egene/entity/{entId}",
-            "Method": "GET",
-            "Response": "Entity",
-            "Description": "엔터티 정보 조회 API."
+            "ID": "엔터티 ID로 고유한 값으로 정의되며, 영문 대문자/숫자만 입력 가능 (최대 20자리).",
+            "Name": "엔터티 ID의 이름으로, 최대 100자리까지 입력 가능.",
+            "Type": {
+              "Workflow": "워크플로우 관리에서 사용.",
+              "Relation": "1:N 구조에서 사용.",
+              "General": "등록 후 종료 데이터 기반으로 이력 관리.",
+              "System": "솔루션 시스템 관리.",
+              "LifeCycle": "솔루션 기반 정보 관리.",
+              "ServiceRepository": "DW를 위한 데이터 레퍼지토리.",
+              "Dataset": "데이터 셋."
+            },
+            "Package": {
+              "ECC": "Data set, Data source, DataAdapter, DataAdapter 이력, RawData.",
+              "ECF": "직원, 부서, 회사, 지표, 코드.",
+              "ECR": "워크플로우 (Form, Sql, Mapping 등).",
+              "EDM": "지표 관련 데이터를 쌓아두는 repository.",
+              "EFC": "Config, Entity, Field, Table 등.",
+              "ELG": "로그 관리.",
+              "ESO": "Service Operation 데이터."
+            }
           }
         ]
+      },
+      "TableManagement": {
+        "Description": "테이블 스키마를 Oracle이나 Maria와 같은 DBMS DDL 없이 솔루션에서 제공하는 관리 UI를 통해 생성하거나 수정할 수 있습니다. 마스터 테이블은 필수로 생성해야 하며, 커스텀 테이블은 선택적으로 생성할 수 있습니다.",
+        "Attributes": {
+          "Table": "마스터 테이블 외의 물리적인 테이블 생성 여부는 선택입니다.",
+          "CreationAndDeletion": "엔터티의 Package+엔터티 ID 조합으로 물리적인 테이블 생성 가능. 테이블 ID 수정 가능."
+        },
+        "Columns": [
+          {
+            "Name": "고유 필드 ID.",
+            "Label": "UI에서 보이는 물리적 필드의 기본 라벨명.",
+            "Type": "UI 유형으로 사전 정의. 폼 디자이너에서 선택지 결정.",
+            "Usage": "사용 여부에 따라 화면 표시 여부 결정.",
+            "PK": "물리적 항목 ID를 PK로 자동 지정.",
+            "Audit": "변경이력 테이블과 영향.",
+            "EntityReference": "참조할 타겟 엔터티 정의.",
+            "CodeType": "참조할 코드 유형 정의."
+          }
+        ]
+      },
+      "APIIntegration": {
+        "RESTAPI": {
+          "Endpoints": [
+            {
+              "URL": "도메인명/api/egene/entity/newkey",
+              "Method": "GET",
+              "Response": "JSONObject",
+              "Description": "유니크 키 생성 API."
+            },
+            {
+              "URL": "도메인명/api/egene/entity/{id}/newkey",
+              "Method": "GET",
+              "Response": "JSONObject",
+              "Description": "엔터티의 시퀀스 값에 따라 키 생성 API."
+            },
+            {
+              "URL": "도메인명/api/egene/entity/rows/{entId}",
+              "Method": "GET",
+              "Response": "JSONArray",
+              "Description": "캐시 엔터티의 전체 데이터 조회 API."
+            },
+            {
+              "URL": "도메인명/api/egene/entity/all/{entId}",
+              "Method": "GET",
+              "Response": "JSONArray",
+              "Description": "엔터티의 마스터 테이블 모든 데이터 조회 API."
+            },
+            {
+              "URL": "도메인명/api/egene/entity/{entId}",
+              "Method": "GET",
+              "Response": "Entity",
+              "Description": "엔터티 정보 조회 API."
+            }
+          ]
+        }
       }
     }
   }

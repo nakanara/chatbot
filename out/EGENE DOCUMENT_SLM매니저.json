@@ -1,4 +1,7 @@
 {
+  "title": "SLM 매니저",
+  "type": "Document",
+  "content": {
     "SLM": {
       "Introduction": "SLA를 바탕으로 IT조직에 의해 제공된 서비스의 품질을 측정하고, 보고하고, 향상시키는 지속적인 절차입니다.",
       "Advantages": [
@@ -102,4 +105,4 @@
       ]
     }
   }
-  
+}

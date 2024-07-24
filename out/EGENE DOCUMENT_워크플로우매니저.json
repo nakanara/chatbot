@@ -1,50 +1,52 @@
 {
-  "WorkflowManagerGuide": {
-    "Introduction": {
-      "Description": "EGENE 워크플로우 모듈은 비즈니스 프로세스를 시스템화하여 제공하는 도구입니다. 운영 업무의 흐름을 구성하고, 단계와 수행 담당자를 정의하여 시스템으로 제공합니다. 편집 요소는 Workflow, Activity, Task, Form, Control의 5가지 영역으로 구성됩니다."
-    },
-    "WorkflowManagement": {
-      "Attributes": [
-        "워크플로우 고유 아이디",
-        "워크플로우 이름",
-        "워크플로우 사용 여부",
-        "워크플로우 설명"
-      ],
-      "Functions": [
-        {
-          "Add": {
-            "Description": "워크플로우 유형의 엔터티와 물리적인 마스터 테이블을 생성한 상태에서 워크플로우를 추가할 수 있습니다. 여러 개의 워크플로우를 추가할 수 있으며, ID는 자동 채번됩니다."
-          },
-          "Edit": {
-            "Description": "ID를 제외한 속성 값을 수정할 수 있습니다."
-          },
-          "Delete": {
-            "Description": "워크플로우와 연결된 하위 요소들이 모두 삭제되며, 백업 히스토리도 복구가 불가합니다."
-          },
-          "Copy": {
-            "Description": "대상 워크플로우를 선택하여 하위 요소들까지 시퀀스 채번되어 동일하게 복사됩니다. 폼과 제어의 상세 내용도 함께 복사됩니다."
-          },
-          "Backup": {
-            "Description": "해당 시점의 워크플로우를 백업할 수 있으며, 백업 히스토리에서 확인할 수 있습니다."
-          },
-          "Restore": {
-            "Description": "백업 히스토리를 기준으로 특정 시점으로 복원이 가능합니다."
-          },
-          "ExtractData": {
-            "Description": "워크플로우 기반 데이터 현황을 SQL 쿼리로 추출할 수 있습니다. 액티비티 플로우 맵의 데이터 추출 쿼리는 워크플로우 SQL 탭을 통해 관리됩니다."
+  "title": "워크플로우 매니저",
+  "type": "Document",
+  "content":   {
+    "WorkflowManagerGuide": {
+      "Introduction": {
+        "Description": "EGENE 워크플로우 모듈은 비즈니스 프로세스를 시스템화하여 제공하는 도구입니다. 운영 업무의 흐름을 구성하고, 단계와 수행 담당자를 정의하여 시스템으로 제공합니다. 편집 요소는 Workflow, Activity, Task, Form, Control의 5가지 영역으로 구성됩니다."
+      },
+      "WorkflowManagement": {
+        "Attributes": [
+          "워크플로우 고유 아이디",
+          "워크플로우 이름",
+          "워크플로우 사용 여부",
+          "워크플로우 설명"
+        ],
+        "Functions": [
+          {
+            "Add": {
+              "Description": "워크플로우 유형의 엔터티와 물리적인 마스터 테이블을 생성한 상태에서 워크플로우를 추가할 수 있습니다. 여러 개의 워크플로우를 추가할 수 있으며, ID는 자동 채번됩니다."
+            },
+            "Edit": {
+              "Description": "ID를 제외한 속성 값을 수정할 수 있습니다."
+            },
+            "Delete": {
+              "Description": "워크플로우와 연결된 하위 요소들이 모두 삭제되며, 백업 히스토리도 복구가 불가합니다."
+            },
+            "Copy": {
+              "Description": "대상 워크플로우를 선택하여 하위 요소들까지 시퀀스 채번되어 동일하게 복사됩니다. 폼과 제어의 상세 내용도 함께 복사됩니다."
+            },
+            "Backup": {
+              "Description": "해당 시점의 워크플로우를 백업할 수 있으며, 백업 히스토리에서 확인할 수 있습니다."
+            },
+            "Restore": {
+              "Description": "백업 히스토리를 기준으로 특정 시점으로 복원이 가능합니다."
+            },
+            "ExtractData": {
+              "Description": "워크플로우 기반 데이터 현황을 SQL 쿼리로 추출할 수 있습니다. 액티비티 플로우 맵의 데이터 추출 쿼리는 워크플로우 SQL 탭을 통해 관리됩니다."
+            }
           }
-        }
-      ]
-    },
-    "Activity": {
-      "Attributes": [
-        "액티비티 고유의 아이디",
-        "액티비티 명",
-        "액티비티 TAG",
-        "액티비티 설명"
-      ],
-      "Functions": [
-        {
+        ]
+      },
+      "Activity": {
+        "Attributes": [
+          "액티비티 고유의 아이디",
+          "액티비티 명",
+          "액티비티 TAG",
+          "액티비티 설명"
+        ],
+        "Functions": {
           "Add": {
             "Description": "여러 개의 액티비티를 추가할 수 있으며, ID는 자동 채번됩니다."
           },
@@ -54,22 +56,20 @@
           "Delete": {
             "Description": "액티비티 삭제 시 하위 요소들도 함께 삭제됩니다."
           }
-        ]
-      ]
-    },
-    "Task": {
-      "Attributes": [
-        "타스크 아이디",
-        "타스크 이름",
-        "타스크와 연결된 액티비티",
-        "타스크 유형",
-        "TAG",
-        "사용 여부",
-        "옵션",
-        "타스크 설명"
-      ],
-      "Functions": [
-        {
+        }
+      },
+      "Task": {
+        "Attributes": [
+          "타스크 아이디",
+          "타스크 이름",
+          "타스크와 연결된 액티비티",
+          "타스크 유형",
+          "TAG",
+          "사용 여부",
+          "옵션",
+          "타스크 설명"
+        ],
+        "Functions": {
           "Add": {
             "Description": "여러 개의 타스크를 추가할 수 있으며, ID는 자동 채번됩니다."
           },
@@ -79,17 +79,15 @@
           "Delete": {
             "Description": "타스크 삭제 시 하위 요소들도 함께 삭제됩니다."
           }
-        ]
-      ]
-    },
-    "Form": {
-      "Attributes": [
-        "폼 고유의 아이디",
-        "폼 이름",
-        "폼 설명"
-      ],
-      "Functions": [
-        {
+        }
+      },
+      "Form": {
+        "Attributes": [
+          "폼 고유의 아이디",
+          "폼 이름",
+          "폼 설명"
+        ],
+        "Functions": {
           "Add": {
             "Description": "여러 개의 폼을 추가할 수 있으며, 폼 디자이너를 통해 UI를 구성할 수 있습니다."
           },
@@ -102,23 +100,21 @@
           "Preview": {
             "Description": "저장된 폼을 미리보기 형태로 확인할 수 있습니다."
           }
-        ]
-      ]
-    },
-    "Control": {
-      "Attributes": [
-        "버튼 고유의 아이디",
-        "버튼 이름",
-        "버튼 TAG",
-        "버튼 유형",
-        "타스크의 다음 단계",
-        "타스크의 순방향",
-        "타스크의 추가 옵션",
-        "타스크 설명",
-        "타스크의 다음 스크립트 정의"
-      ],
-      "Functions": [
-        {
+        }
+      },
+      "Control": {
+        "Attributes": [
+          "버튼 고유의 아이디",
+          "버튼 이름",
+          "버튼 TAG",
+          "버튼 유형",
+          "타스크의 다음 단계",
+          "타스크의 순방향",
+          "타스크의 추가 옵션",
+          "타스크 설명",
+          "타스크의 다음 스크립트 정의"
+        ],
+        "Functions": {
           "Add": {
             "Description": "단계에 따른 버튼을 여러 개 생성할 수 있으며, 다양한 기능을 설정할 수 있습니다."
           },
@@ -134,118 +130,118 @@
           "ScreenTransition": {
             "Description": "해당 화면에서 별도 페이지로 이동 없이 다음 단계로 전환할 수 있습니다."
           }
-        ]
-      ]
-    },
-    "AutoAssign": {
-      "Description": "Auto Assign은 프로세스 진행 중의 담당자를 기 설정된 조건에 따라 자동 변경할 수 있도록 관리하는 기능입니다. 담당자 설정 방법은 Auto Assign, Data Update, Form Field 3가지가 있습니다.",
-      "Settings": [
-        {
-          "BasicInfo": [
-            "Entity",
-            "WorkFlow",
-            "Next Task",
-            "담당 그룹",
-            "담당자",
-            "우선순위"
-          ]
-        },
-        {
-          "Conditions": [
-            "조건 추가",
-            "연산자",
-            "값",
-            "조건 삭제"
-          ]
-        },
-        {
-          "Script": [
-            "Script 설정",
-            "Script 입력 화면"
-          ]
         }
-      ]
-    },
-    "Approval": {
-      "Description": "내장된 결재 모듈을 사용하여 결재 라인을 사전에 정의하고 자동 결재 라인을 관리할 수 있습니다.",
-      "Settings": [
-        {
-          "Attributes": [
-            "type",
-            "title",
-            "title_var",
-            "uri",
-            "appr",
-            "agree",
-            "refer",
-            "src_tas_id",
-            "apr_tas_id",
-            "reject_tas_id",
-            "config"
-          ]
-        },
-        {
-          "AutoAssign": {
-            "Description": "결재자 자동 지정 관리를 통해 사전에 정의된 결재 라인을 설정할 수 있습니다."
+      },
+      "AutoAssign": {
+        "Description": "Auto Assign은 프로세스 진행 중의 담당자를 기 설정된 조건에 따라 자동 변경할 수 있도록 관리하는 기능입니다. 담당자 설정 방법은 Auto Assign, Data Update, Form Field 3가지가 있습니다.",
+        "Settings": [
+          {
+            "BasicInfo": [
+              "Entity",
+              "WorkFlow",
+              "Next Task",
+              "담당 그룹",
+              "담당자",
+              "우선순위"
+            ]
+          },
+          {
+            "Conditions": [
+              "조건 추가",
+              "연산자",
+              "값",
+              "조건 삭제"
+            ]
+          },
+          {
+            "Script": [
+              "Script 설정",
+              "Script 입력 화면"
+            ]
           }
-        }
-      ]
-    },
-    "Notification": {
-      "Description": "버튼 이벤트 발생 시 알림 매체를 설정할 수 있으며, 알림 매체의 서버가 사전에 설정되어 있어야 합니다.",
-      "Settings": [
-        {
-          "Attributes": [
-            "알림 전송 사용 여부",
-            "알림 매체",
-            "알림 발송 시 html content 설정",
-            "본문 SQL",
-            "전송 대상 SQL"
-          ]
-        }
-      ]
-    },
-    "AdditionalWork": {
-      "Description": "버튼 이벤트 발생 시 추가 작업을 설정할 수 있으며, SQL 관리를 통해 설정된 SQL을 실행할 수 있습니다.",
-      "Settings": [
-        {
-          "Attributes": [
-            "추가 작업 사용 여부",
-            "작업 SQL"
-          ]
-        }
-      ]
-    },
-    "RuleManager": {
-      "Description": "비즈니스 로직을 규칙으로 만들어 별도 개발 없이 설정할 수 있도록 지원하며, 규칙에 맞는 데이터 업데이트 로직을 제공합니다.",
-      "Steps": [
-        {
-          "CreateRule": [
-            "유형 선택",
-            "데이터 소스 결정",
-            "업데이트 대상 결정",
-            "업데이트 컬럼 매핑"
-          ]
-        },
-        {
-          "UseRule": [
-            "제어 설정",
-            "외부 호출"
-          ]
-        }
-      ]
-    },
-    "ExternalCall": {
-      "Description": "버튼 실행 시 외부 시스템을 호출할 수 있는 기능입니다. URI를 여러 개 설정할 수 있으며 트랜잭션이 묶여있지 않습니다.",
-      "Settings": [
-        {
-          "Attributes": [
-            "외부 호출 사용 여부",
-            "호출될 URI",
-            "URI의 파라미터 정의"
-          ]
-        }
-      ]
+        ]
+      },
+      "Approval": {
+        "Description": "내장된 결재 모듈을 사용하여 결재 라인을 사전에 정의하고 자동 결재 라인을 관리할 수 있습니다.",
+        "Settings": [
+          {
+            "Attributes": [
+              "type",
+              "title",
+              "title_var",
+              "uri",
+              "appr",
+              "agree",
+              "refer",
+              "src_tas_id",
+              "apr_tas_id",
+              "reject_tas_id",
+              "config"
+            ]
+          },
+          {
+            "AutoAssign": {
+              "Description": "결재자 자동 지정 관리를 통해 사전에 정의된 결재 라인을 설정할 수 있습니다."
+            }
+          }
+        ]
+      },
+      "Notification": {
+        "Description": "버튼 이벤트 발생 시 알림 매체를 설정할 수 있으며, 알림 매체의 서버가 사전에 설정되어 있어야 합니다.",
+        "Settings": [
+          {
+            "Attributes": [
+              "알림 전송 사용 여부",
+              "알림 매체",
+              "알림 발송 시 html content 설정",
+              "본문 SQL",
+              "전송 대상 SQL"
+            ]
+          }
+        ]
+      },
+      "AdditionalWork": {
+        "Description": "버튼 이벤트 발생 시 추가 작업을 설정할 수 있으며, SQL 관리를 통해 설정된 SQL을 실행할 수 있습니다.",
+        "Settings": [
+          {
+            "Attributes": [
+              "추가 작업 사용 여부",
+              "작업 SQL"
+            ]
+          }
+        ]
+      },
+      "RuleManager": {
+        "Description": "비즈니스 로직을 규칙으로 만들어 별도 개발 없이 설정할 수 있도록 지원하며, 규칙에 맞는 데이터 업데이트 로직을 제공합니다.",
+        "Steps": [
+          {
+            "CreateRule": [
+              "유형 선택",
+              "데이터 소스 결정",
+              "업데이트 대상 결정",
+              "업데이트 컬럼 매핑"
+            ]
+          },
+          {
+            "UseRule": [
+              "제어 설정",
+              "외부 호출"
+            ]
+          }
+        ]
+      },
+      "ExternalCall": {
+        "Description": "버튼 실행 시 외부 시스템을 호출할 수 있는 기능입니다. URI를 여러 개 설정할 수 있으며 트랜잭션이 묶여있지 않습니다.",
+        "Settings": [
+          {
+            "Attributes": [
+              "외부 호출 사용 여부",
+              "호출될 URI",
+              "URI의 파라미터 정의"
+            ]
+          }
+        ]
+      }
     }
   }
 }

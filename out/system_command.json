@@ -1,0 +1,13 @@
+{
+  "title": "Command",
+  "type": "command",
+  "helper": "대화 내용 중 command 의 descr기준으로 명령어를 파악해서 의도한 내용이 있으면 {'command': 'command'}로 전달하고, command에 없다면 매뉴얼을 기준으로 적절한 답을 찾아서 다음의 형식으로 답변 해줘 {'command':'menual', 'ask': '답변~~'} 매뉴얼에도 유사한 값이 없다면 chatgpt에서 답을 찾고 {'command':'chatgpt', 'ask':'~~'} 형식으로 답을 줘",
+  "content": {
+    "command": [
+      {"command": "myreq", "descr": "내가 등록한 내역, 나의 요청 목록"},
+      {"command": "myass", "descr": "나의 할일, 내가 처리할 일"},
+      {"command": "myapr", "descr": "내가 승인할, 결재할 내역"}
+      
+    ]
+  }
+}
