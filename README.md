@@ -13,7 +13,17 @@ pip install langchain-teddynote
 pip install langchain_openai
 pip install IPython
 
+pip install langchain_community
 
 # Install read PDF
 
 pip install pymupdf
+
+# Anaconda
+https://www.anaconda.com/download/success
+
+# Jupyter
+pip install jupyter
+
+- 실행
+jupyter notepbook
